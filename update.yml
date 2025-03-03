@@ -1,0 +1,10 @@
+---
+- name: Update all packages on Red Hat-based systems
+  hosts: webserver
+  become: true
+  tasks:
+    - name: Update all packages
+      dnf:
+        name: '*'
+        state: latest
+

@@ -1,0 +1,41 @@
+- name: variables
+  hosts: webserver
+  vars:
+    # 1. string variable 
+    studentname: Anjana
+
+    #2. boolean
+    enabled: false
+
+    #3. list variables
+    studentlist:
+    - mridul
+    - murshi
+    - anamika
+    #4. student marks
+    student_marks:
+     mridul: 85
+     murshi: 90  
+  tasks:
+     - name: string variable
+       debug:
+        var: studentname
+
+     - name: boolean
+       debug:
+         msg: value is true
+       when : enabled
+      
+     - name: list variables
+       debug:
+         var: studentlist
+
+     - name: list reference
+       debug:
+         var: studentlist[0]  
+
+     - name: print dictinary variables
+       debug:
+         #var: student_marks
+           #var: student_marks.mridul
+         msg: " mridul's mark {{ student_marks.mridul }}"  

@@ -1,0 +1,11 @@
+---
+- name: Print the port 8080 message
+  hosts: webserver
+  vars:
+    port:
+      defaultport: 80
+  tasks:
+    - name: Print message for port 8080
+      debug:
+        msg: " port is {{ port.defaultport}}"
+

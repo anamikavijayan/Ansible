@@ -1,0 +1,8 @@
+---
+- name : to set up a webserver
+  hosts: webserver
+  become: yes
+  tasks: 
+     - name: copy a file 
+       copy:
+         src: 

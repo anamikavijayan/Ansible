@@ -1,0 +1,12 @@
+---
+- name: Create user and add 
+  hosts: webserver
+  become: yes
+  tasks:
+    - name: user
+      user:
+        name: anu # user to add wheel group
+        groups: wheel # add user to wheel group
+        state: present
+        
+

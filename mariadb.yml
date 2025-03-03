@@ -1,0 +1,22 @@
+---
+- name: To install Mariadb
+  hosts: databaseserver
+  become: yes 
+  vars:
+    rootpassword: "anu01"
+    databasename: "database"
+    user: "hello"
+    databasepassword: "anu01"
+
+  tasks:
+    - name: Install mariadb 
+      dnf:
+        name: mariadb-server
+        state: present
+
+    - name: Enable status of mariadb
+      service:
+         name: mariadb
+         state: started
+         enabled: yes
+

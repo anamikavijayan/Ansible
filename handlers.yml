@@ -1,0 +1,19 @@
+---
+- name: webserver
+  hosts: webserver
+  become: yes
+  tasks:
+    - name: copy configration file
+      copy:
+        src: /home/synnefo/files/nginx.conf
+        dest: /etc/nginx/nginx.conf
+        owner: anu
+        group: anu
+        mode: '0644'
+      notify: restart nginx
+  handlers:
+     - name: restart nginx
+       service:
+         name: nginx
+         state: restarted    
+

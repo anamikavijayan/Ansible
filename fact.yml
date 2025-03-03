@@ -1,0 +1,46 @@
+---
+ - name: Fact variables 
+   hosts: webserver
+   gather_facts: yes
+
+   tasks:
+      - name: Display the os distribution
+        debug:
+          msg: "The os distribution is {{ ansible_facts['distribution'] }}."
+
+      - name: Display the cpu details
+        debug:
+          msg: "The cpu details is {{ ansible_facts['processor'] }}."
+
+      - name: distribution version 
+        debug:
+          msg: " os distribution version is {{ ansible_facts['distribution_version'] }}."
+      
+      - name: ip address
+        debug:
+          msg: "{{ ansible_facts['default_ipv4']['address'] }}"
+
+      - name: memory
+        debug:
+          msg: "Total memory is {{ ansible_facts['memtotal_mb'] }} MB"
+    
+      - name: Ram memory
+        debug:
+          msg: "Total RAM is {{ ansible_facts['memtotal_mb'] }} MB"
+
+      - name: Display the current hostname
+        debug:
+          msg:  "The current hostname is {{ ansible_hostname }}" 
+
+      - name: os family
+        debug:
+          msg:  "The OS family is {{ ansible_facts['os_family'] }}"
+
+      - name: current user
+        debug:
+           msg: "The current user is {{ ansible_user }}"
+
+      - name: release sceheme
+        debug:
+          msg:  "The OS release scheme is {{ ansible_facts['distribution_major_version'] }}"
+

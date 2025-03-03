@@ -1,0 +1,11 @@
+- name: To install MariaDB
+  hosts: databaseserver
+  become: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python3  # Adjust path if using Python 2 or a different path
+  tasks:
+    - name: Create the MariaDB database
+      mysql_db:
+        name: anjana
+        state: present
+

@@ -1,0 +1,15 @@
+---
+- name: install packages and create user and set passwd 
+  hosts: webserver
+  become: yes
+  vars:
+    # to install packages
+    package:
+       - git
+       - tree
+  tasks:
+    - name: to install package
+      dnf:
+        name: "{{ package }}"
+        state: present
+        
